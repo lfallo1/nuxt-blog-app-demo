@@ -17,9 +17,9 @@ export default {
   data() {
     return {
       loadedPost: {
-        author: 'Maximilian',
-        title: 'My awesome Post',
-        content: 'Super amazing, thanks for that!',
+        author: 'Lance',
+        title: 'Some Post',
+        content: 'Post body, thanks for that!',
         thumbnailLink: 'https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg'
       }
     }
