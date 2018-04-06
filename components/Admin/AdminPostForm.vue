@@ -2,10 +2,9 @@
   <form @submit.prevent="onSave">
     <AppControlInput v-model="editedPost.author">Author Name</AppControlInput>
     <AppControlInput v-model="editedPost.title">Title</AppControlInput>
-    <AppControlInput v-model="editedPost.thumbnailLink">Thumbnail Link</AppControlInput>
     <AppControlInput
       control-type="textarea"
-      v-model="editedPost.content">Content</AppControlInput>
+      v-model="editedPost.body">Content</AppControlInput>
     <AppButton type="submit">Save</AppButton>
     <AppButton
       type="button"
@@ -25,21 +24,18 @@ export default {
     AppButton
   },
   props: {
-    post: {
-      type: Object,
+    id: {
+      type: Number,
       required: false
     }
   },
   data() {
     return {
-      editedPost: this.post
-        ? { ...this.post }
-        : {
-            author: "",
-            title: "",
-            thumbnailLink: "",
-            content: ""
-          }
+      editedPost: {
+        author: "",
+        title: "",
+        content: ""
+      }
     };
   },
   methods: {
@@ -50,6 +46,11 @@ export default {
     onCancel() {
       // Navigate back
       this.$router.push("/admin");
+    }
+  },
+  created(){
+    if(this.$route.params.postId) {
+      this.editedPost = this.$store.getters.postById(this.$route.params.postId);
     }
   }
 };

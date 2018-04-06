@@ -1,7 +1,7 @@
 <template>
   <div class="admin-post-page">
     <section class="update-form">
-      <AdminPostForm :post="loadedPost" />
+      <AdminPostForm :id="$route.params.id" />
     </section>
   </div>
 </template>
@@ -13,16 +13,6 @@ export default {
   layout: 'admin',
   components: {
     AdminPostForm
-  },
-  data() {
-    return {
-      loadedPost: {
-        author: 'Lance',
-        title: 'Some Post',
-        content: 'Post body, thanks for that!',
-        thumbnailLink: 'https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg'
-      }
-    }
   }
 }
 </script>

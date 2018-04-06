@@ -1,17 +1,21 @@
 <template>
   <div class="posts-page">
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
 <script>
-import PostList from '@/components/Posts/PostList'
+import PostList from "@/components/Posts/PostList"
+import {mapGetters} from 'vuex'
 
 export default {
   components: {
     PostList
+  },
+  computed: {
+    ...mapGetters(['loadedPosts'])
   }
-}
+};
 </script>
 
 

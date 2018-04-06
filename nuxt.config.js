@@ -19,6 +19,14 @@ module.exports = {
     ]
   },
 
+  transition: {
+    name: 'page',
+    mode: 'out-in',
+    beforeEnter (el) {
+      console.log('Before enter...');
+    }
+  },
+
   /*
   ** Customize the progress-bar color
   */
@@ -49,7 +57,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    vendor: ['axios', 'vue-notifications'],
+    vendor: ['axios'],
     extend(config, ctx) {
 
     }
